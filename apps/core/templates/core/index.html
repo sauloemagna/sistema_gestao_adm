@@ -7,10 +7,19 @@
             Columns 1
         </div>
         <div class="col-sm">
-            Columns 2
+            Olá {{ usuario.funcionario.nome }}
+            <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionário</a>
+            <a href="{% url 'list_departamentos' %}">Gerenciar Departamento</a>
+            <a href="{% url 'list_hora_extra' %}">Gerenciar Banco de Horas</a>
         </div>
         <div class="col-sm">
             <a href="{% url 'logout' %}">Logout</a>
+
+            {% if usuario.funcionario.empresa %}
+                <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar Empresa</a>
+            {% else %}
+                <a href=" {% url 'create_empresa' %}">Criar Empresa</a>
+            {% endif %}
         </div>
 
     </div>
