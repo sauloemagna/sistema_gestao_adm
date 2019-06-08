@@ -4,3 +4,4 @@ venv
 *.pyc
 gestao_rh/__pycache__/
 .gitignore
+Key_gestao_rh.pem
