@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap %}
 
 {% block main %}
@@ -13,8 +14,27 @@
             <a href="{% url 'delete_hora_extra' object.id %}" class="btn btn-danger">
                 Deletar
             </a>
+
         {% endif %}
 
+
+        <button onclick="utilizouHoraExtra({{ object.id }})" class="btn btn-info" type="button">
+            Marcar como utilizado
+        </button>
+        <button onclick="naoutilizouHoraExtra({{ object.id }})" class="btn btn-danger" type="button">
+            Desmarcar como utilizada
+        </button>
+
     </form>
+<h2 id="horas_atualizadas">{{ object.funcionario.total_horas_extras }}</h2>
 <br>
+<p id="mensagem"></p>
+{% endblock %}
+
+{% block static %}
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+    <script src="{% static 'js/funcoes-ajax.js' %}"></script>
 {% endblock %}

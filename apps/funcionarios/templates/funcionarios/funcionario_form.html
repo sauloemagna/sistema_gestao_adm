@@ -11,13 +11,29 @@
     </form>
 <br>
     {% if object %}
-        <a href="{% url 'create_documento' object.id %}" class="btn btn-primary">Adicionar documento</a>
+        <a href="{% url 'create_documento' object.id %}" class="btn btn-sucess">Adicionar documento</a>
     {% endif %}
+    <ul>
+        {% for documento in object.documento_set.all %}
+            <li>
+                <a href="{{ documento.arquivo.url }}">{{ documento.descricao }}</a> <br>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Banco de Horas</h2>
+    <ul>
+        {% for registro_horas in object.registrohoraextra_set.all %}
+            <li>
+                <a href="{% url 'update_hora_extra' registro_horas.id %}">
+                    {{ registro_horas.motivo }} | {{ registro_horas.horas }}
+                </a><br>
+            </li>
+        {% endfor %}
+    </ul>
 
-    {% for documento in object.documento_set.all %}
-
-        <a href="{{ documento.arquivo.url }}">{{ documento.descricao }}</a> <br>
-
-    {% endfor %}
+    <h3>Total de Horas Extras: {{ object.total_horas_extras }}</h3>
 
 {% endblock %}
+
+
+

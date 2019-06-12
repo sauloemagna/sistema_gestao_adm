@@ -6,7 +6,7 @@
     <br>
     {% for hora_extra in object_list %}
 
-        <a href="{% url 'update_hora_extra' hora_extra.id %}">
+        <a href="{% url 'update_hora_extra_base' hora_extra.id %}">
             {{ hora_extra }}
         </a>
         <a href="{% url 'delete_hora_extra' hora_extra.id %}">
@@ -18,4 +18,6 @@
         <h3>Não existe registro de hora extra no banco de dados</h3>
     {% endif %}
     <a href="{% url 'create_hora_extra' %}">Adicionar HE</a>
+    <a href="{% url 'export_csv' %}">Exportar CSV</a>
+    <a href="{% url 'export_excel' %}">Exportar Excel</a>
 {% endblock %}
