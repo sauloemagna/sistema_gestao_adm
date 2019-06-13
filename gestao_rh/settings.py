@@ -25,7 +25,7 @@ SECRET_KEY = '$u5*0tw54f7r85m26d#68j4$xgbp4^wt3k7dagtdeu*sk1mfmu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.83.123.84', 'localhost']
+ALLOWED_HOSTS = ['18.205.23.161', 'localhost']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_celery_results',
 
     'apps.empresas',
     'apps.funcionarios',
@@ -140,3 +141,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+CELERY_RESULT_BACKEND = 'django-db'
+
+# Celery application definition
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
