@@ -1,5 +1,5 @@
 .idea
-db.sqlite3
+*.sqlite3
 venv
 *.pyc
 gestao_rh/__pycache__/
@@ -7,4 +7,12 @@ gestao_rh/__pycache__/
 Key_gestao_rh.pem
 static
 .env
-env
+media
+static
+uwsgi.ini
+uwsgi_params
+*.bak
+*.dat
+*.pid
+*.dir
+
