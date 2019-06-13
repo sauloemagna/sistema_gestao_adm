@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bootstrapform',
+    'rest_framework',
 
     'apps.empresas',
     'apps.funcionarios',
