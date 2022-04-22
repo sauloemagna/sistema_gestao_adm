@@ -9,7 +9,7 @@ html5lib==1.0.1
 kombu==4.6.1
 Pillow==6.0.0
 PyMySQL==0.9.3
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-decouple==3.1
 pytz==2019.1
 redis==3.2.1
